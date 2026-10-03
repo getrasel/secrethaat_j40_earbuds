@@ -29,7 +29,7 @@ export const ThankYou: React.FC = () => {
   } | null;
 
   const [fallbackOrderNumber] = useState(
-    () => `Q10-${Math.floor(10000 + Math.random() * 90000)}`,
+    () => `J40-${Math.floor(10000 + Math.random() * 90000)}`,
   );
   const orderNumber = state?.orderNumber || fallbackOrderNumber;
 
@@ -54,7 +54,7 @@ export const ThankYou: React.FC = () => {
     if (typeof window !== "undefined" && typeof (window as any).fbq === "function") {
       (window as any).fbq("track", "Purchase", {
         content_name: PRODUCT_INFO.name,
-        content_ids: ["q10_hifi_earbuds"],
+        content_ids: ["j40_4in1_earbuds"],
         content_type: "product",
         value: grandTotal,
         currency: "BDT",

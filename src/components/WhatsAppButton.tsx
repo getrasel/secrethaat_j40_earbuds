@@ -5,7 +5,7 @@ export const WhatsAppButton: React.FC = () => {
   const phoneNumber = "8801746867350";
   const displayPhone = "+8801746867350";
   const message =
-    "হ্যালো, আমি Q10 HiFi Stereo Sports Earbuds সম্পর্কে বিস্তারিত জানতে ও অর্ডার করতে চাই।";
+    "হ্যালো, আমি J40 V5.4 Wireless 4-in-1 Earbuds সম্পর্কে বিস্তারিত জানতে ও অর্ডার করতে চাই।";
   const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(
     message
   )}`;

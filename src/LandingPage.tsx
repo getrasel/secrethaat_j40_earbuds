@@ -2,10 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { createSupabaseOrder } from './utils/orderStorage';
 import heroEarbudsImg from './assets/earbuds.jpg';
-import twoPairEarbudsImg from './assets/2jura_earbuds.jpg';
-import blackEarbudsImg from './assets/black_Earbuds.jpg';
-import whiteEarbudsImg from './assets/q10_white_earbuds.jpg';
-import q10EarbudsCaseImg from './assets/q10_earbuds.jpg';
+import j40EarbudsImg from './assets/j40_earbuds.jpg';
+import multipleDeviceImg from './assets/multiple_device.jpg';
 
 // Icons for modern, polished aesthetic matching reference
 import {
@@ -50,7 +48,7 @@ export default function LandingPage() {
   const [showMobileFloatingBar, setShowMobileFloatingBar] = useState(false);
 
   useEffect(() => {
-    document.title = 'Q10 HiFi Stereo Sports Earbuds | এক বক্সে ৪টি ইয়ারবাড (In-Ear ও Ear-Clip)';
+    document.title = 'J40 V5.4 Wireless 4-in-1 Earbuds | এক কেসে ২ জোড়া (৪টি) ইয়ারবাডস';
 
     // Hash scrolling if landed with #order-form or similar
     if (window.location.hash) {
@@ -94,7 +92,7 @@ export default function LandingPage() {
 
   // Pricing configuration
   const regularPrice = 1490;
-  const offerPrice = 990;
+  const offerPrice = 1090;
   const deliveryCharge = 0;
   const subtotal = orderForm.quantity * offerPrice;
   const totalAmount = subtotal + deliveryCharge;
@@ -158,7 +156,7 @@ export default function LandingPage() {
         name: orderForm.name.trim(),
         phone: orderForm.phone.trim(),
         address: orderForm.address.trim(),
-        product: 'Q10 HiFi Stereo Sports Earbuds',
+        product: 'J40 V5.4 Wireless 4-in-1 Earbuds',
         color: orderForm.variant,
         quantity: orderForm.quantity,
         price: offerPrice,
@@ -173,8 +171,8 @@ export default function LandingPage() {
 
       const fallbackId = Math.floor(100000 + Math.random() * 900000);
       const finalOrderId = createdOrder?.id
-        ? `Q10-${createdOrder.id}`
-        : `Q10-${fallbackId}`;
+        ? `J40-${createdOrder.id}`
+        : `J40-${fallbackId}`;
 
       // 2. Navigate to Thank You page with order details for Meta Pixel Purchase tracking
       navigate('/thank-you', {
@@ -195,7 +193,7 @@ export default function LandingPage() {
       });
     } catch (err) {
       console.error('Order submission error:', err);
-      const fallbackId = `Q10-${Math.floor(100000 + Math.random() * 900000)}`;
+      const fallbackId = `J40-${Math.floor(100000 + Math.random() * 900000)}`;
       navigate('/thank-you', {
         state: {
           order: {
@@ -219,28 +217,32 @@ export default function LandingPage() {
 
   const faqItems = [
     {
-      q: 'এক বক্সে কয়টি ইয়ারবাড থাকছে?',
-      a: 'একটি চার্জিং কেসের সাথে মোট ৪টি ইয়ারবাড থাকছে—২ জোড়া।'
+      q: 'এক কেসে কয়টি ইয়ারবাড থাকছে?',
+      a: 'একটি মাত্র চার্জিং কেসের ভেতর মোট ৪টি ইয়ারবাড থাকছে—সম্পূর্ণ ২ জোড়া (ওপরে ১ জোড়া এবং নিচের পার্টে আরও ১ জোড়া)।'
     },
     {
-      q: 'দুই ধরনের ইয়ারবাড কী কী?',
-      a: 'এক জোড়া In-Ear এবং অন্য জোড়া Ear-Clip ডিজাইনের।'
+      q: 'দুজন মানুষ কি আলাদা ফোনে ব্যবহার করতে পারবে?',
+      a: 'হ্যাঁ! ডুয়াল কানেক্টিভিটি থাকার কারণে চাইলে দুজন মানুষ সম্পূর্ণ স্বাধীনভাবে দুটি আলাদা স্মার্টফোনে ২ জোড়া ইয়ারবাড কানেক্ট করে ব্যবহার করতে পারবেন।'
     },
     {
-      q: 'Bluetooth কত?',
-      a: 'Bluetooth 5.4'
+      q: 'চার্জিং কেসের ব্যাটারি ও চার্জ কীভাবে দেখা যায়?',
+      a: 'কেসের ঠিক মাঝামাঝি থাকা ডিজিটাল LED স্ক্রিনে কেসের মোট চার্জের শতকরা পরিমাণ (১০০%) এবং ওপর ও নিচের প্রতিটি ইয়ারবাড আলাদাভাবে চার্জ হচ্ছে কিনা তার লাইভ স্ট্যাটাস খুব সহজেই দেখা যায়।'
     },
     {
-      q: 'চার্জের অবস্থা কীভাবে দেখব?',
-      a: 'চার্জিং কেসের ডিজিটাল LED ডিসপ্লের মাধ্যমে চার্জের অবস্থা দেখা যায়।'
+      q: 'ব্লুটুথ ভার্সন কত এবং সাউন্ড কোয়ালিটি কেমন?',
+      a: 'এতে দ্রুত ও স্ট্যাবল সংযোগের জন্য রয়েছে লেটেস্ট Bluetooth v5.4 প্রযুক্তি এবং হাই-ফাই (Hi-Fi) স্টেরিও সাউন্ড কোয়ালিটি যা মিউজিক শোনার অভিজ্ঞতাকে করে তোলে দারুণ।'
     },
     {
-      q: 'পানি থেকে সুরক্ষা আছে?',
-      a: 'IPX4 সুবিধা থাকায় ঘাম ও হালকা পানির ঝাপটা থেকে সুরক্ষার সুবিধা রয়েছে।'
+      q: 'কথা বলার সময় বাইরের শব্দ কমবে কি (ENC)?',
+      a: 'হ্যাঁ, কথা বলার সময় বাইরের অপ্রয়োজনীয় কোলাহল কমিয়ে স্পষ্ট ও স্বচ্ছ ভয়েস নিশ্চিত করতে এতে রয়েছে ENC (Environmental Noise Cancellation) প্রযুক্তি।'
     },
     {
-      q: 'ক্যাশ অন ডেলিভারি আছে?',
-      a: 'হ্যাঁ, সারা বাংলাদেশে ক্যাশ অন ডেলিভারি সুবিধা রয়েছে।'
+      q: 'ঘাম বা পানির ছিটেফোঁটায় কি সুরক্ষিত?',
+      a: 'হ্যাঁ, ঘাম বা পানির হালকা ছিটেফোঁটা থেকে ইয়ারবাডকে সুরক্ষিত রাখতে এতে IPX5 ওয়াটার রেজিস্ট্যান্ট ফিচার দেওয়া হয়েছে।'
+    },
+    {
+      q: 'সারা বাংলাদেশে কি ক্যাশ অন ডেলিভারি পাওয়া যাবে?',
+      a: 'হ্যাঁ, কোনো অগ্রিম টাকা ছাড়া সারা বাংলাদেশে সম্পূর্ণ ক্যাশ অন ডেলিভারি সুবিধা রয়েছে। পণ্য হাতে পেয়ে চেক করে সম্পূর্ণ মূল্য পরিশোধ করবেন।'
     }
   ];
 
@@ -258,10 +260,10 @@ export default function LandingPage() {
             <div className="w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full bg-[#0284C7] shadow-[0_0_12px_rgba(2,132,199,0.7)] animate-pulse shrink-0" />
             <a href="#" className="flex flex-col text-left group">
               <div className="font-en text-base sm:text-lg font-extrabold tracking-wider text-[#0F172A] group-hover:text-[#0284C7] transition-colors leading-tight">
-                Q10 EARBUDS
+                J40 EARBUDS
               </div>
               <span className="text-[11px] sm:text-xs text-[#64748B] font-medium tracking-normal font-bn leading-tight">
-                হাই-ফাই স্পোর্টস ইয়ারবাডস
+                ওয়্যারলেস ৪-ইন-১ ইয়ারবাডস
               </span>
             </a>
           </div>
@@ -355,27 +357,27 @@ export default function LandingPage() {
               <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-sky-50 border border-sky-200 w-fit mb-4 md:mb-6 shadow-xs">
                 <span className="w-2 h-2 rounded-full bg-[#0284C7] animate-pulse" />
                 <span className="text-xs uppercase tracking-wider text-[#0284C7] font-bold">
-                  সীমিত স্টক • ৪টি ইয়ারবাড ইন ১ বক্স
+                  সীমিত স্টক • ১ কেসে ২ জোড়া (৪টি) ইয়ারবাড
                 </span>
               </div>
 
               {/* Headline */}
               <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-[2.6rem] xl:text-[2.85rem] font-bold tracking-tight text-[#0F172A] leading-[1.3] mb-4 md:mb-5 font-bn">
-                এক বক্সে ৪টি ইয়ারবাড! <br className="hidden sm:inline" />
+                এক কেসে ৪টি ইয়ারবাড! <br className="hidden sm:inline" />
                 <span className="bg-gradient-to-r from-[#0284C7] via-[#0EA5E9] to-[#2563EB] bg-clip-text text-transparent">
-                  দুই স্টাইলে বদলে নিন আপনার শোনার অভিজ্ঞতা।
+                  দুই মোবাইলেও একসাথে ব্যবহারের সুবিধা।
                 </span>
               </h1>
 
               {/* Subtitle */}
               <p className="text-base sm:text-lg md:text-xl text-[#475569] leading-relaxed mb-6 font-normal">
-                একই চার্জিং কেসে In-Ear ও Ear-Clip—আপনার পছন্দ অনুযায়ী ব্যবহার করুন দুই ধরনের ডিজাইন।
+                অত্যাধুনিক প্রযুক্তি এবং উদ্ভাবনী ডিজাইনের এক অপূর্ব সমন্বয়ে একটি মাত্র চার্জিং কেসে পাচ্ছেন সম্পূর্ণ ২ জোড়া ইয়ারবাড।
               </p>
 
               {/* Price / Offer Display */}
               <div className="flex flex-wrap items-baseline gap-3 sm:gap-4 mb-6">
                 <span className="text-4xl sm:text-5xl md:text-6xl font-black text-[#0284C7] font-num tracking-tight">
-                  ৳ ৯৯০
+                  ৳ ১,০৯০
                 </span>
                 <span className="text-xl sm:text-2xl text-[#94A3B8] line-through font-num font-semibold">
                   ৳ ১,৪৯০
@@ -396,7 +398,7 @@ export default function LandingPage() {
                   <span>অর্ডার করতে চাই</span>
                 </button>
                 <a
-                  href="https://wa.me/8801746867350?text=Hello%2C%20I%20want%20to%20order%20Q10%20HiFi%20Stereo%20Sports%20Earbuds"
+                  href="https://wa.me/8801746867350?text=Hello%2C%20I%20want%20to%20order%20J40%20V5.4%20Wireless%204-in-1%20Earbuds"
                   target="_blank"
                   rel="noreferrer"
                   className="flex-1 flex items-center justify-center gap-2.5 px-6 py-4 rounded-xl bg-[#16a34a] hover:bg-[#15803d] text-white font-bold text-base sm:text-lg shadow-md hover:scale-[1.02] active:scale-[0.98] transition-all cursor-pointer text-center"
@@ -409,16 +411,16 @@ export default function LandingPage() {
               {/* Supporting Points / Trust Badges */}
               <div className="flex flex-wrap items-center gap-3 sm:gap-4 text-xs sm:text-sm text-[#475569] font-medium">
                 <span className="flex items-center gap-1.5 sm:gap-2 text-[#0284C7] font-semibold bg-sky-50 px-2.5 py-1 rounded-lg border border-sky-100">
-                  <LuHeadphones size={16} /> ২ জোড়া ইয়ারবাড
+                  <LuHeadphones size={16} /> ২ জোড়া (৪টি) ইয়ারবাড
                 </span>
                 <span className="flex items-center gap-1.5 sm:gap-2 bg-slate-50 px-2.5 py-1 rounded-lg border border-slate-200">
                   <LuBluetooth className="text-[#0284C7]" size={16} /> Bluetooth 5.4
                 </span>
                 <span className="flex items-center gap-1.5 sm:gap-2 bg-slate-50 px-2.5 py-1 rounded-lg border border-slate-200">
-                  <LuBatteryCharging className="text-[#0284C7]" size={16} /> ডিজিটাল LED ডিসপ্লে
+                  <LuBatteryCharging className="text-[#0284C7]" size={16} /> স্মার্ট LED ডিসপ্লে
                 </span>
                 <span className="flex items-center gap-1.5 sm:gap-2 bg-slate-50 px-2.5 py-1 rounded-lg border border-slate-200">
-                  <LuDroplets className="text-[#0284C7]" size={16} /> IPX4
+                  <LuDroplets className="text-[#0284C7]" size={16} /> IPX5 ওয়াটারপ্রুফ
                 </span>
               </div>
               <div className="mt-3 flex items-center gap-2 text-xs sm:text-sm text-[#64748B]">
@@ -432,7 +434,7 @@ export default function LandingPage() {
               <div className="relative w-full max-w-md lg:max-w-none rounded-3xl p-3 sm:p-4 bg-white border border-slate-200 shadow-xl group z-10">
                 <img
                   src={heroEarbudsImg}
-                  alt="Q10 HiFi Stereo Sports Earbuds - 4 Earbuds in 1 Box"
+                  alt="J40 V5.4 Wireless 4-in-1 Earbuds - 2 Pairs 4 Earbuds in 1 Case"
                   className="w-full h-auto object-cover max-h-[380px] sm:max-h-[440px] md:max-h-[480px] rounded-2xl transition-transform duration-500 group-hover:scale-[1.02]"
                   loading="eager"
                 />
@@ -444,7 +446,7 @@ export default function LandingPage() {
                 </div>
                 <div className="absolute -bottom-3 right-2.5 sm:right-6 px-3 sm:px-3.5 py-1.5 sm:py-2 rounded-xl bg-white border border-sky-200 shadow-lg flex items-center gap-1.5 sm:gap-2 z-20">
                   <LuActivity size={16} className="text-[#0284C7] shrink-0" />
-                  <span className="text-[11px] sm:text-xs font-semibold text-[#0284C7]">LED ডিসপ্লে & IPX4</span>
+                  <span className="text-[11px] sm:text-xs font-semibold text-[#0284C7]">LED ডিসপ্লে & ENC</span>
                 </div>
               </div>
             </div>
@@ -467,10 +469,10 @@ export default function LandingPage() {
               প্রোডাক্ট পরিচিতি
             </span>
             <h2 className="text-2xl sm:text-4xl md:text-5xl font-bold text-[#0F172A] tracking-tight mb-3">
-              এক বক্সে দুই স্টাইলের স্বাধীনতা
+              এক কেসে ২ জোড়া ইয়ারবাডের স্বাধীনতা
             </h2>
             <p className="text-sm sm:text-base md:text-lg text-[#475569] leading-relaxed font-normal">
-              একই চার্জিং কেসে In-Ear ও Ear-Clip—প্রয়োজন অনুযায়ী বেছে নিন আপনার পছন্দের স্টাইল।
+              J40 V5.4-এর অভিনব চার্জিং কেসে পাচ্ছেন সম্পূর্ণ দুই জোড়া ইয়ারবাড। চাইলে দুজন আলাদা ডিভাইসে কিংবা একজন চার্জ ফুরিয়ে যাওয়ার চিন্তা ছাড়াই একটানা ব্যাকআপ হিসেবে ব্যবহার করতে পারবেন।
             </p>
             <div className="small-design-line" />
           </div>
@@ -482,10 +484,10 @@ export default function LandingPage() {
                 ০১
               </div>
               <h3 className="text-lg sm:text-xl font-bold text-[#0F172A] mb-2">
-                এক বক্সে ৪টি ইয়ারবাড
+                স্মার্ট টাচ কন্ট্রোল
               </h3>
               <p className="text-[#475569] text-xs sm:text-sm leading-relaxed font-normal">
-                একটি চার্জিং কেসের ভেতরেই থাকছে মোট ৪টি ইয়ারবাড—২ জোড়া, ২ ধরনের ডিজাইন।
+                মিউজিক প্লে/পজ, গান পরিবর্তন ও কল রিসিভের জন্য ইয়ারবাডগুলোর ব্যাকপ্যানেলে রয়েছে অত্যন্ত রেসপন্সিভ টাচ সেন্সর।
               </p>
             </div>
 
@@ -495,10 +497,10 @@ export default function LandingPage() {
                 ০২
               </div>
               <h3 className="text-lg sm:text-xl font-bold text-[#0F172A] mb-2">
-                দুই ধরনের ডিজাইন
+                ডুয়াল কানেক্টিভিটি
               </h3>
               <p className="text-[#475569] text-xs sm:text-sm leading-relaxed font-normal">
-                এক জোড়া In-Ear এবং অন্য জোড়া Ear-Clip—প্রয়োজন অনুযায়ী বেছে নিন।
+                চাইলে দুজন মানুষ আলাদা ২টি স্মার্টফোনে ২ জোড়া স্বাধীনভাবে ব্যবহার করতে পারবেন, অথবা ১ জোড়া চার্জে রেখে অন্য জোড়া ননস্টপ চালাতে পারবেন।
               </p>
             </div>
 
@@ -508,10 +510,10 @@ export default function LandingPage() {
                 ০৩
               </div>
               <h3 className="text-lg sm:text-xl font-bold text-[#0F172A] mb-2">
-                Bluetooth 5.4
+                স্মার্ট LED ডিসপ্লে
               </h3>
               <p className="text-[#475569] text-xs sm:text-sm leading-relaxed font-normal">
-                দ্রুত ও স্থিতিশীল ওয়্যারলেস সংযোগের জন্য রয়েছে Bluetooth 5.4।
+                কেসের মাঝের ডিজিটাল স্ক্রিনে মোট ব্যাটারি পার্সেন্টেজ (১০০%) এবং ওপর ও নিচের প্রতিটি ইয়ারবাডের লাইভ চার্জিং স্ট্যাটাস দেখা যায়।
               </p>
             </div>
 
@@ -521,10 +523,10 @@ export default function LandingPage() {
                 ০৪
               </div>
               <h3 className="text-lg sm:text-xl font-bold text-[#0F172A] mb-2">
-                ডিজিটাল LED ডিসপ্লে
+                হাই-ফাই সাউন্ড ও ENC
               </h3>
               <p className="text-[#475569] text-xs sm:text-sm leading-relaxed font-normal">
-                চার্জিং কেসের চার্জের অবস্থা সহজেই দেখে নিতে পারবেন ডিজিটাল ডিসপ্লেতে।
+                Bluetooth 5.4, প্রিমিয়াম হাই-ফাই মিউজিক কোয়ালিটি এবং কথা বলার সময় বাইরের নয়েজ কমানোর জন্য রয়েছে ENC ক্লিয়ার কলিং প্রযুক্তি।
               </p>
             </div>
           </div>
@@ -534,7 +536,7 @@ export default function LandingPage() {
 
 
       {/* ==================================================
-          PRODUCT GALLERY (6 Image Showcase with Lightbox)
+          PRODUCT GALLERY (4 Image Showcase with Lightbox)
           ================================================== */}
       <section id="gallery" className="py-12 md:py-16 bg-white border-t border-slate-200/80">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -552,33 +554,28 @@ export default function LandingPage() {
             <div className="small-design-line" />
           </div>
 
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-3.5 sm:gap-5 lg:gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6">
             {[
               {
-                src: q10EarbudsCaseImg,
-                title: 'ডিজিটাল স্মার্ট LED ডিসপ্লে চার্জিং কেস ও ইয়ারবাডস',
-                badge: 'LED ডিসপ্লে কেস'
+                src: multipleDeviceImg,
+                title: 'ডুয়াল কানেক্টিভিটি — ২টি স্মার্টফোনে একসাথে ২ জোড়া স্বাধীন কানেকশন',
+                badge: 'ডুয়াল ফোন কানেকশন'
               },
               {
-                src: twoPairEarbudsImg,
-                title: 'একই চার্জিং কেসে In-Ear ও Ear-Clip দুই স্টাইলের ইয়ারবাড',
-                badge: '৪টি ইয়ারবাড সেট'
+                src: heroEarbudsImg,
+                title: 'দ্বিমুখী চার্জিং কেস — ওপর ও নিচ মিলিয়ে মোট ৪টি ইয়ারবাড',
+                badge: '৪-ইন-১ চার্জিং কেস'
               },
               {
-                src: blackEarbudsImg,
-                title: 'প্রিমিয়াম ব্ল্যাক কালার এডিশন — চমৎকার সাউন্ড ও লুক',
-                badge: 'ব্ল্যাক ভ্যারিয়েন্ট'
-              },
-              {
-                src: whiteEarbudsImg,
-                title: 'আকর্ষণীয় হোয়াইট কালার এডিশন — স্মার্ট ও স্টাইলিশ',
-                badge: 'হোয়াইট ভ্যারিয়েন্ট'
+                src: j40EarbudsImg,
+                title: 'স্মার্ট LED ব্যাটারি পার্সেন্টেজ ডিসপ্লে ও হাই-ফাই সাউন্ড',
+                badge: 'স্মার্ট LED ডিসপ্লে'
               }
             ].map((item, index) => (
               <div
                 key={index}
                 onClick={() => setPreviewImage(item)}
-                className="group relative rounded-2xl sm:rounded-3xl p-2.5 sm:p-4 bg-slate-50 border border-slate-200 shadow-xs hover:shadow-xl hover:border-sky-300 transition-all duration-300 cursor-pointer overflow-hidden flex flex-col justify-between"
+                className="group relative rounded-2xl sm:rounded-3xl p-3 sm:p-4 bg-slate-50 border border-slate-200 shadow-xs hover:shadow-xl hover:border-sky-300 transition-all duration-300 cursor-pointer overflow-hidden flex flex-col justify-between"
               >
                 <div className="aspect-square w-full rounded-xl sm:rounded-2xl bg-white border border-slate-100 overflow-hidden flex items-center justify-center p-2 mb-2 sm:mb-3 relative">
                   <img
@@ -596,7 +593,7 @@ export default function LandingPage() {
                 </div>
 
                 <div className="flex items-center justify-between gap-1.5 px-0.5 sm:px-1">
-                  <span className="font-bold text-[11px] sm:text-xs md:text-sm text-[#0F172A] truncate">
+                  <span className="font-bold text-xs sm:text-sm text-[#0F172A] truncate">
                     {item.badge}
                   </span>
                   <span className="text-[10px] sm:text-[11px] text-[#0284C7] font-semibold shrink-0">
@@ -622,19 +619,19 @@ export default function LandingPage() {
               প্রিমিয়াম ফিচারসমূহ
             </span>
             <h2 className="text-2xl sm:text-4xl font-bold tracking-tight text-[#0F172A]">
-              কেন Q10 Earbuds?
+              কেন J40 Earbuds?
             </h2>
             <div className="small-design-line" />
           </div>
 
-          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3 sm:gap-4 md:gap-4">
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3 sm:gap-4 md:gap-4">
             {/* Feature 01 */}
             <div className="p-3.5 sm:p-5 rounded-2xl light-card text-center flex flex-col items-center justify-center group hover:border-sky-300">
               <div className="w-11 h-11 sm:w-14 sm:h-14 rounded-2xl bg-sky-50 text-[#0284C7] flex items-center justify-center mb-2.5 sm:mb-3 border border-sky-100 group-hover:scale-110 transition-transform">
                 <LuHeadphones size={22} className="sm:w-6 sm:h-6" />
               </div>
               <h3 className="text-xs sm:text-sm md:text-base font-bold text-[#0F172A] leading-snug">
-                এক বক্সে ৪টি ইয়ারবাড
+                দ্বিমুখী চার্জিং কেস
               </h3>
             </div>
 
@@ -644,7 +641,7 @@ export default function LandingPage() {
                 <LuSparkles size={22} className="sm:w-6 sm:h-6" />
               </div>
               <h3 className="text-xs sm:text-sm md:text-base font-bold text-[#0F172A] leading-snug">
-                দুই ধরনের ডিজাইন
+                ডুয়াল কানেক্টিভিটি
               </h3>
             </div>
 
@@ -654,7 +651,7 @@ export default function LandingPage() {
                 <LuBatteryCharging size={22} className="sm:w-6 sm:h-6" />
               </div>
               <h3 className="text-xs sm:text-sm md:text-base font-bold text-[#0F172A] leading-snug">
-                ডিজিটাল LED ডিসপ্লে
+                স্মার্ট LED ডিসপ্লে
               </h3>
             </div>
 
@@ -669,12 +666,22 @@ export default function LandingPage() {
             </div>
 
             {/* Feature 05 */}
+            <div className="p-3.5 sm:p-5 rounded-2xl light-card text-center flex flex-col items-center justify-center group hover:border-amber-300">
+              <div className="w-11 h-11 sm:w-14 sm:h-14 rounded-2xl bg-amber-50 text-[#D97706] flex items-center justify-center mb-2.5 sm:mb-3 border border-amber-100 group-hover:scale-110 transition-transform">
+                <LuActivity size={22} className="sm:w-6 sm:h-6" />
+              </div>
+              <h3 className="text-xs sm:text-sm md:text-base font-bold text-[#0F172A] leading-snug">
+                স্মার্ট টাচ কন্ট্রোল
+              </h3>
+            </div>
+
+            {/* Feature 06 */}
             <div className="p-3.5 sm:p-5 rounded-2xl light-card text-center flex flex-col items-center justify-center group hover:border-cyan-300">
               <div className="w-11 h-11 sm:w-14 sm:h-14 rounded-2xl bg-cyan-50 text-[#0891B2] flex items-center justify-center mb-2.5 sm:mb-3 border border-cyan-100 group-hover:scale-110 transition-transform">
                 <LuDroplets size={22} className="sm:w-6 sm:h-6" />
               </div>
               <h3 className="text-xs sm:text-sm md:text-base font-bold text-[#0F172A] leading-snug">
-                IPX4 সুবিধা
+                IPX5 ও ENC সুবিধা
               </h3>
             </div>
           </div>
@@ -705,22 +712,22 @@ export default function LandingPage() {
                 </div>
 
                 <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold text-[#0F172A] mb-3 tracking-tight leading-snug">
-                  এক বক্সে দুই স্টাইল—পছন্দটা আপনার
+                  এক কেসে ২ জোড়া—ব্যবহারের সীমাহীন স্বাধীনতা
                 </h3>
 
                 <p className="text-sm sm:text-base md:text-lg text-[#475569] max-w-xl mx-auto lg:mx-0 mb-4 leading-relaxed font-normal">
-                  In-Ear হোক কিংবা Ear-Clip—একসাথে পাচ্ছেন দুই ধরনের ব্যবহারের সুবিধা।
+                  চাইলে দুজন আলাদা ফোনে চালান কিংবা একটানা আনলিমিটেড ব্যাকআপ উপভোগ করুন।
                 </p>
 
-                {/* In-Ear vs Ear-Clip Usage Highlights */}
+                {/* Dual Connectivity Highlights */}
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-6 text-left">
                   <div className="p-3.5 rounded-xl bg-slate-50 border border-slate-200">
-                    <span className="font-bold text-xs sm:text-sm text-[#0284C7] block mb-1">In-Ear স্টাইল</span>
-                    <p className="text-xs text-[#475569] leading-relaxed">দৈনন্দিন গান শোনা, ভিডিও দেখা কিংবা সাধারণ ব্যবহারের জন্য আরামদায়ক In-Ear ডিজাইন।</p>
+                    <span className="font-bold text-xs sm:text-sm text-[#0284C7] block mb-1">শেয়ারিং মোড (Dual Connect)</span>
+                    <p className="text-xs text-[#475569] leading-relaxed">দুজন মানুষ আলাদা দুটি ফোনে ২ জোড়া ইয়ারবাড সম্পূর্ণ স্বাধীনভাবে কানেক্ট করে ব্যবহার করতে পারবেন।</p>
                   </div>
                   <div className="p-3.5 rounded-xl bg-slate-50 border border-slate-200">
-                    <span className="font-bold text-xs sm:text-sm text-[#0284C7] block mb-1">Ear-Clip স্টাইল</span>
-                    <p className="text-xs text-[#475569] leading-relaxed">আধুনিক Ear-Clip ডিজাইনটি হাঁটা, জিম বা দৈনন্দিন চলাফেরায় ব্যবহারের জন্য উপযোগী।</p>
+                    <span className="font-bold text-xs sm:text-sm text-[#0284C7] block mb-1">নন-স্টপ ব্যাকআপ মোড</span>
+                    <p className="text-xs text-[#475569] leading-relaxed">এক জোড়া ব্যবহারের সময় অন্য জোড়া কেসে চার্জে থাকবে—ফলে চার্জ ফুরিয়ে যাওয়ার কোনো চিন্তাই থাকছে না।</p>
                   </div>
                 </div>
 
@@ -761,7 +768,7 @@ export default function LandingPage() {
                     <li className="flex items-center gap-3 p-3 rounded-xl bg-white border border-slate-200 shadow-2xs">
                       <LuCircleCheck className="text-[#0284C7] shrink-0" size={19} />
                       <span className="text-sm sm:text-base font-bold text-[#0F172A]">
-                        Q10 ইয়ারবাডস (৪টি ইয়ারবাড + কেস)
+                        J40 V5.4 ইয়ারবাডস (৪টি ইয়ারবাড + কেস)
                       </span>
                     </li>
                     <li className="flex items-center gap-3 p-3 rounded-xl bg-white border border-slate-200 shadow-2xs">
@@ -890,8 +897,6 @@ export default function LandingPage() {
                   <p className="text-xs text-red-500 font-medium mt-1">{formErrors.address}</p>
                 )}
               </div>
-
-
 
               {/* Quantity Selector */}
               <div>
@@ -1049,11 +1054,11 @@ export default function LandingPage() {
       <section className="py-14 md:py-20 text-center relative overflow-hidden bg-white border-t border-slate-200/80">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <h2 className="text-3xl sm:text-5xl md:text-6xl font-bold tracking-tight text-[#0F172A] leading-tight mb-4">
-            এক বক্সে দুই স্টাইল— <br className="hidden sm:inline" />
-            <span className="text-[#0284C7]">আপনার পছন্দ কোনটি?</span>
+            এক কেসে ২ জোড়া ইয়ারবাডস— <br className="hidden sm:inline" />
+            <span className="text-[#0284C7]">আপনার মিউজিক এক্সপেরিয়েন্স হোক আনলিমিটেড</span>
           </h2>
           <p className="text-base sm:text-lg text-[#475569] max-w-xl mx-auto mb-6 font-normal">
-            In-Ear হোক কিংবা Ear-Clip—Q10 Earbuds-এ থাকছে দুটিরই সুবিধা।
+            J40 V5.4 ফোর-ইন-ওয়ান ওয়্যারলেস ইয়ারবাডস দিয়ে উপভোগ করুন প্রিমিয়াম সাউন্ড ও পাওয়ারফুল পারফরম্যান্স।
           </p>
           <div className="small-design-line" />
           <button
@@ -1076,13 +1081,13 @@ export default function LandingPage() {
           <div className="flex flex-col md:flex-row items-center justify-between gap-6">
             <div>
               <div className="font-en text-base font-extrabold text-[#0F172A] tracking-wider mb-0.5">
-                Q10 EARBUDS
+                J40 EARBUDS
               </div>
-              <p className="text-xs text-[#64748B] font-bn font-medium">হাই-ফাই স্পোর্টস ইয়ারবাডস</p>
+              <p className="text-xs text-[#64748B] font-bn font-medium">ওয়্যারলেস ৪-ইন-১ ইয়ারবাডস</p>
             </div>
 
             <a
-              href="https://wa.me/8801746867350?text=Hello%2C%20I%20want%20to%20know%20about%20Q10%20HiFi%20Stereo%20Sports%20Earbuds"
+              href="https://wa.me/8801746867350?text=Hello%2C%20I%20want%20to%20know%20about%20J40%20Wireless%204-in-1%20Earbuds"
               target="_blank"
               rel="noreferrer"
               className="inline-flex items-center gap-2.5 px-4 py-2.5 rounded-xl bg-emerald-50 border border-emerald-300 hover:bg-emerald-100 text-emerald-700 transition-colors cursor-pointer"
@@ -1150,7 +1155,7 @@ export default function LandingPage() {
         <div className="flex items-center justify-between gap-3">
           <div>
             <span className="text-[11px] font-bold text-emerald-600 block">ডেলিভারি চার্জ ফ্রি</span>
-            <span className="font-num text-xl font-black text-[#0284C7]">৳ ৯৯০</span>
+            <span className="font-num text-xl font-black text-[#0284C7]">৳ ১,০৯০</span>
           </div>
           <button
             onClick={() => scrollToSection('order-form')}

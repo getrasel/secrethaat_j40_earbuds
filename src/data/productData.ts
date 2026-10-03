@@ -1,14 +1,14 @@
-import blackEarbudsImg from '../assets/black_Earbuds.jpg';
-import whiteEarbudsImg from '../assets/q10_white_earbuds.jpg';
+import blackEarbudsImg from '../assets/earbuds.jpg';
+import j40EarbudsImg from '../assets/j40_earbuds.jpg';
 
 import type { ProductColor } from '../types';
 
 export const PRODUCT_INFO = {
-  name: "Q10 HiFi Stereo Sports Earbuds",
-  nameBangla: "Q10 হাই-ফাই স্টেরিও স্পোর্টস ইয়ারবাডস",
-  tagline: "এক বক্সে ৪টি ইয়ারবাড! দুই স্টাইলে বদলে নিন আপনার শোনার অভিজ্ঞতা।",
+  name: "J40 V5.4 Wireless 4-in-1 Earbuds",
+  nameBangla: "J40 V5.4 ওয়্যারলেস ফোর-ইন-ওয়ান ইয়ারবাডস",
+  tagline: "এক কেসে ২ জোড়া ইয়ারবাডস! অত্যাধুনিক প্রযুক্তি ও প্রিমিয়াম সাউন্ডের অপূর্ব সমন্বয়।",
   regularPrice: 1490,
-  basePrice: 990,
+  basePrice: 1090,
   deliveryDhaka: 0,
   deliveryOutside: 0,
 };
@@ -28,7 +28,7 @@ export const COLOR_VARIANTS: ProductColor[] = [
     nameEn: "White",
     hex: "#F8FAFC",
     badgeBg: "bg-slate-100 text-slate-700 border-slate-200",
-    image: whiteEarbudsImg,
+    image: j40EarbudsImg,
   },
 ];
 

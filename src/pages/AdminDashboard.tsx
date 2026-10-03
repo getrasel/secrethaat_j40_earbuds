@@ -143,12 +143,12 @@ export const AdminDashboard: React.FC<AdminDashboardProps> = ({
       name: `গ্রাহক ${randomSuffix}`,
       phone: `017${Math.floor(10000000 + Math.random() * 90000000)}`,
       address: "হাউজ ২৫, ধানমন্ডি, ঢাকা",
-      product: "Q10 HiFi Stereo Sports Earbuds",
+      product: "J40 V5.4 Wireless 4-in-1 Earbuds",
       color: randomSuffix % 2 === 0 ? "ব্ল্যাক (Black)" : "হোয়াইট (White)",
       quantity: 1,
-      price: 890,
-      shipping_amount: 70,
-      total_amount: 960,
+      price: 1090,
+      shipping_amount: 0,
+      total_amount: 1090,
       status: "pending",
     };
 
@@ -177,7 +177,7 @@ export const AdminDashboard: React.FC<AdminDashboardProps> = ({
         : total;
     const itemTotal = unitPrice * qty;
 
-    const info = `অর্ডার #${ord.id}\nনাম: ${ord.name}\nফোন: ${ord.phone}\nঠিকানা: ${ord.address}\nপণ্য: ${ord.product || "Q10 HiFi Stereo Sports Earbuds"} (${ord.color || "ব্ল্যাক (Black)"})\nপরিমাণ: ${qty} টি\nমূল্য: ৳${unitPrice} x ${qty} = ৳${itemTotal}\nডেলিভারি: ৳${shipping}\nসর্বমোট: ৳${total}`;
+    const info = `অর্ডার #${ord.id}\nনাম: ${ord.name}\nফোন: ${ord.phone}\nঠিকানা: ${ord.address}\nপণ্য: ${ord.product || "J40 V5.4 Wireless 4-in-1 Earbuds"} (${ord.color || "ব্ল্যাক (Black)"})\nপরিমাণ: ${qty} টি\nমূল্য: ৳${unitPrice} x ${qty} = ৳${itemTotal}\nডেলিভারি: ৳${shipping}\nসর্বমোট: ৳${total}`;
 
     navigator.clipboard.writeText(info);
     setCopiedId(ord.id);
